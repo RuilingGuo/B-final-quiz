@@ -26,7 +26,7 @@ public class GroupController {
     public List<GroupDto> autoGrouping(){
         return groupService.autoGrouping();
     }
-    @PatchMapping()
+    @PatchMapping("/{group_id}")
     public void updateGroupName(@PathVariable(value = "group_id") Long groupId,
                                 @RequestParam(value = "name") String groupName){
         groupService.updateGroupName(groupId,groupName);
