@@ -15,6 +15,9 @@ configurations {
 }
 
 repositories {
+	maven {
+		url 'https://maven.aliyun.com/repository/public/'
+	}
 	mavenCentral()
 }
 
@@ -25,9 +28,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	runtime 'com.h2database:h2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	runtime('mysql:mysql-connector-java')
+
 }
 
 test {
