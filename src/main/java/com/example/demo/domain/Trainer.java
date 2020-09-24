@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Data
 public class Trainer {
-    @NotBlank
+    @NotBlank(message = "名字不能为空")
     private String name;
 
 }

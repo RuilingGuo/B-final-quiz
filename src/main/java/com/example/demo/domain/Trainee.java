@@ -11,13 +11,13 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Data
 public class Trainee {
-    @NotBlank
+    @NotBlank(message = "名字不能为空")
     private String name;
-    @NotBlank
+    @NotBlank(message = "办公室不能为空")
     private String office;
-    @Email
+    @Email(message = "邮箱地址不正确")
     private String email;
-    @NotBlank
+    @NotBlank(message = "Zoom meeting ID不能为空")
     private String zoomId;
     private String github;
 

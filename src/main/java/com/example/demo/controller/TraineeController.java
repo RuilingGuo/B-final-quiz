@@ -29,9 +29,10 @@ public class TraineeController {
     public void createTrainee(@RequestBody @Valid Trainee trainee){
         traineeService.createTrainee(trainee);
     }
-    @DeleteMapping()
+
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTrainee(@PathVariable(value = "trainee_id") Long id){
+    public void deleteTrainee(@PathVariable(value = "id") Long id){
         traineeService.deleteTraineeByTraineeId(id);
     }
 
