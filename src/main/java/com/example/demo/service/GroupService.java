@@ -39,7 +39,7 @@ public class GroupService {
         List<GroupDto> groupDtoList = groupRepository.findAll();
         groupDtoList.stream().forEach(groupDto -> {
             groupDto.setTrainees(traineeRepository.findTraineeDtoByGroupId(groupDto.getId()));
-            groupDto.setTrainees(trainerRepository.findTrainerDtoByGroupId(groupDto.getId()));
+            groupDto.setTrainers(trainerRepository.findTrainerDtoByGroupId(groupDto.getId()));
         });
         return groupDtoList;
     }
@@ -51,7 +51,11 @@ public class GroupService {
             throw new TrainerIsNotEnoughException("当前讲师数量不足");
         }
         int groupNum =trainerDtoList.size()/2;
-        groupRepository.saveAll(asList(new GroupDto[groupNum]));
+        List<GroupDto> init = new ArrayList<>();
+        IntStream.range(0,groupNum)
+                .forEach(index -> init.add(new GroupDto()));
+
+        groupRepository.saveAll(init);
         List<GroupDto> groupDtoList = groupRepository.findAll();
 
         groupDtoList.forEach(groupDto -> {

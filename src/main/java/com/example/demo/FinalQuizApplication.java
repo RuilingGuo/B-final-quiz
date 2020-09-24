@@ -10,4 +10,5 @@ public class FinalQuizApplication {
 		SpringApplication.run(FinalQuizApplication.class, args);
 	}
 
+
 }

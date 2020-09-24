@@ -16,5 +16,5 @@ public interface TrainerRepository extends CrudRepository<TrainerDto,Long> {
 
     List<TrainerDto> findTrainerDtoByGrouped(Boolean grouped);
 
-    List<TraineeDto> findTrainerDtoByGroupId(Long id);
+    List<TrainerDto> findTrainerDtoByGroupId(Long id);
 }
