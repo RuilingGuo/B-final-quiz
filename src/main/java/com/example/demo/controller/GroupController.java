@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/groups")
+@CrossOrigin
 public class GroupController {
 
     private GroupService groupService;
