@@ -11,12 +11,10 @@ public class GroupController {
 
     @GetMapping
     public List<GroupDto> getGroupList(){
-
         return null;
     }
     @PostMapping(value = "/auto-grouping")
     public List<GroupDto> autoGrouping(){
-
         return null;
     }
     @PatchMapping()
