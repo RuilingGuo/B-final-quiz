@@ -13,4 +13,6 @@ public interface TraineeRepository extends CrudRepository<TraineeDto,Long> {
     List<TraineeDto> findAll();
 
     List<TraineeDto> findTraineeDtoByGrouped(Boolean grouped);
+
+    List<TraineeDto> findTraineeDtoByGroupId(Long id);
 }

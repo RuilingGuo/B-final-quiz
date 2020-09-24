@@ -22,7 +22,7 @@ public class TraineeController {
 
     @GetMapping()
     public List<TraineeDto> getTraineeList(@RequestParam(value = "grouped",defaultValue = "false") Boolean grouped ){
-        return traineeService.findTraineeByGrouped(grouped);
+        return traineeService.findTraineesByGrouped(grouped);
     }
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)

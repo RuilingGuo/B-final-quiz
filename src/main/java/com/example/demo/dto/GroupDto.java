@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.domain.Trainee;
 import com.example.demo.domain.Trainer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +19,9 @@ public class GroupDto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Transient
+    private List<TrainerDto> trainers;
+    @Transient
+    private List<TraineeDto> trainees;
+
 }

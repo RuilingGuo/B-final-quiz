@@ -19,7 +19,7 @@ public class TraineeService {
         this.traineeRepository = traineeRepository;
     }
 
-    public List<TraineeDto> findTraineeByGrouped(Boolean grouped) {
+    public List<TraineeDto> findTraineesByGrouped(Boolean grouped) {
         return traineeRepository.findTraineeDtoByGrouped(grouped);
     }
 

@@ -19,13 +19,22 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-    @ExceptionHandler({PeopleNotFoundException.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler({PeopleNotFoundException.class,GroupNotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
-    public ResponseEntity<ErrorMessage> handleUserNotFound(RuntimeException ex) {
+    public ResponseEntity<ErrorMessage> handleNotFound(RuntimeException ex) {
         log.warn("invalid request", ex);
         return ResponseEntity.status(HttpStatus.NOT_FOUND.value())
                 .body(new ErrorMessage(ex.getMessage(), HttpStatus.NOT_FOUND.value()));
+    }
+
+    @ExceptionHandler({TrainerIsNotEnoughException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<ErrorMessage> handleTrainerIsNotEnough(RuntimeException ex) {
+        log.warn("invalid request", ex);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST.value())
+                .body(new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
