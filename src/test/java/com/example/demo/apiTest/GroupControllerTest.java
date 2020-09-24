@@ -22,4 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class GroupControllerTest {
 
+    //TODO:已经通过postman测试，需要在这里补充测试
+
 }
