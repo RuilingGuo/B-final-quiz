@@ -4,6 +4,7 @@ import com.example.demo.domain.Trainee;
 import com.example.demo.domain.Trainer;
 import com.example.demo.dto.TraineeDto;
 import com.example.demo.dto.TrainerDto;
+import com.example.demo.exception.PeopleNotFoundException;
 import com.example.demo.repository.TraineeRepository;
 import com.example.demo.repository.TrainerRepository;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,9 @@ public class TrainerService {
     }
 
     public void deleteTrainerByTrainerId(Long id) {
+        if(!trainerRepository.existsById(id)){
+            throw new PeopleNotFoundException("此讲师不存在");
+        }
         trainerRepository.deleteById(id);
     }
 }

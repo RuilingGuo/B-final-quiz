@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class TraineeController {
     }
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void createTrainee(@RequestBody Trainee trainee){
+    public void createTrainee(@RequestBody @Valid Trainee trainee){
         traineeService.createTrainee(trainee);
     }
     @DeleteMapping()

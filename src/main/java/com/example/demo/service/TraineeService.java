@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Trainee;
 import com.example.demo.dto.TraineeDto;
+import com.example.demo.exception.PeopleNotFoundException;
 import com.example.demo.repository.TraineeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,9 @@ public class TraineeService {
     }
 
     public void deleteTraineeByTraineeId(Long id) {
+        if(!traineeRepository.existsById(id)){
+            throw new PeopleNotFoundException("此学员不存在");
+        }
         traineeRepository.deleteById(id);
     }
 }

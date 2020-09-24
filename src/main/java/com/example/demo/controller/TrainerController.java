@@ -7,6 +7,7 @@ import com.example.demo.service.TrainerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class TrainerController {
     }
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void createTrainer(@RequestBody Trainer trainer){
+    public void createTrainer(@RequestBody @Valid Trainer trainer){
         trainerService.createTrainer(trainer);
 
     }
