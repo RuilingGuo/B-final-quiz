@@ -28,7 +28,7 @@ public class GroupController {
     }
     @PatchMapping("/{group_id}")
     public void updateGroupName(@PathVariable(value = "group_id") Long groupId,
-                                @RequestParam(value = "name") String groupName){
+                                @RequestBody() String groupName){
         groupService.updateGroupName(groupId,groupName);
 
     }
